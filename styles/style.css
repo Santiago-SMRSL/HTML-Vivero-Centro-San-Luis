@@ -1,1 +1,26 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+html {
+scroll-behavior: smooth;
+
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-item: stretch;
+    padding-left 30px;
+    background-color: #ffffff;
+}
+
+.zona-logo {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+
+    
