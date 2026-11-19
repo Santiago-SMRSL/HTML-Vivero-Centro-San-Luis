@@ -1,3 +1,9 @@
+:root {
+    --main-color: #129995;
+    --dark-color: #122E68;
+    --fondo-imagen: url(../imagenes/MAIN.png);
+}
+
 * {
 margin: 0;
 padding: 0;
