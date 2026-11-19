@@ -204,3 +204,39 @@ header .redes{
     color: white;
     text-align: center;
 }
+
+/* Footer */
+
+footer {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer .sec1 {
+    background-color: var(--dark-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer .sec1 a img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+footer .sec2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    color: black;
+}
+
+.sec2 ul {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
