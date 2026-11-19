@@ -5,20 +5,22 @@
 }
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    list-style: none;
 }
 
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
 
 }
 
 /* HEADER */
 
-header{
+header {
     position: sticky;
     top: 0;
     width: 100%;
@@ -29,19 +31,19 @@ header{
     z-index: 1000;
 }
 
-.menus{
+.menus {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.logo{
+.logo {
     height: 80px;
 }
 
 /* Menu Superior */
 
-.superior{
+.superior {
     display: flex;
     background-color: var(--dark-color);
     width: 32%;
@@ -52,59 +54,59 @@ header{
     gap: 10px;
 }
 
-.idiomas :hover{
+.idiomas :hover {
     text-decoration: underline;
 }
 
-.superior a{
+.superior a {
     color: var(--main-color);
 }
 
-.superior ul{
+.superior ul {
     gap: 5px;
 }
 
-.separacion{
+.separacion {
     border-right: 2px white solid;
     border-left: 2px white solid;
     padding: 0 3px;
 }
 
-.menus ul{
+.menus ul {
     display: flex;
 }
 
-.superior img{
+.superior img {
     width: 20px;
 }
 
-header .redes{
+header .redes {
     gap: 5px;
 }
 
 /* Menu Inferior */
 
-.inferior{
+.inferior {
     margin-right: 15px;
 }
 
-.inferior li{
+.inferior li {
     padding: 12px 20px;
-    margin-top: 10px;    
+    margin-top: 10px;
 }
 
-.inferior a{
+.inferior a {
     color: #000000;
     font-size: 1.2rem;
 }
 
-.inferior .button{
+.inferior .button {
     background-color: var(--main-color);
     font-weight: bold;
     border-radius: 12px;
 }
 
-.inferior .button a{
+.inferior .button a {
     color: var(--dark-color);
 }
 
@@ -112,7 +114,7 @@ header .redes{
 .seccion-principal {
     margin-right: 20px;
     margin-left: 20px;
-    background-image:url(../imagenes/MAIN.png);
+    background-image: url(../imagenes/MAIN.png);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 34px;
@@ -120,6 +122,7 @@ header .redes{
     align-content: center;
     position: relative;
 }
+
 .titulo {
     font-size: 45px;
     margin-left: 20px;
@@ -127,18 +130,19 @@ header .redes{
     position: absolute;
     top: 0px;
 }
+
 .contenedor-tarjetas {
     display: flex;
-    gap:50px;
+    gap: 50px;
     justify-content: center;
 }
 
 .tarjeta {
     background-color: #122E6873;
     border-radius: 33px;
-    width:20%;
+    width: 20%;
     height: 288px;
-     backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 
 .tarjeta h2 {
