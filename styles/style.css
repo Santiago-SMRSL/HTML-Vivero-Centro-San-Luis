@@ -131,3 +131,102 @@ a.color-texto {
     color: white;
     text-align: center;
 }
+
+/* FORMULARIO */
+
+#datoslabeluno {
+    margin-left: 100px;
+    gap: 250px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+#datoslabeldos {
+    margin-left: 100px;
+    gap: 260px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+#datoslabeltres {
+    margin-left: 100px;
+    gap: 212px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+
+#datosinput {
+    display: flex;
+    gap: 25px;
+    margin-left: 100px;
+    margin-bottom: 15px;
+}
+
+input.datosinput {
+    background-color: beige;
+    width: 500px;
+    height: 25px;
+}
+
+#datoslabelseis {
+    margin-top: 25px;
+    margin-left: 100px;
+    text-align: left;
+    font-size: 15px;
+}
+
+#datosinputtres {
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 15px;
+}
+
+#datosinputtres label.labelinputtres {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 35px;
+}
+
+#datosinputcinco {
+    display: flex;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 15px;
+    gap: 30px;
+}
+
+#datoslabelocho {
+    margin-top: 25px;
+    margin-left: 100px;
+    text-align: left;
+    font-size: 15px;
+}
+
+textarea {
+    justify-content: left;
+    margin-top: 15px;
+    padding: 5px;
+    background-color: rgb(211, 210, 210);
+}
+
+#celdasdos {
+    display: flex;
+    justify-content: right;
+    gap: 25px;
+    margin-right: 100px;
+}
+
+form p.morado {
+    background-color: blueviolet;
+    color: white;
+    padding: 15px;
+    border-radius: 35px;
+}
+
+form p.transparentemorado {
+    border: 2px solid blueviolet;
+    color: blueviolet;
+    padding: 15px;
+    border-radius: 35px;
+}
