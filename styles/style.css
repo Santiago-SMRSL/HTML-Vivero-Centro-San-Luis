@@ -16,78 +16,99 @@ scroll-behavior: smooth;
 
 }
 
-header {
-    position: sticky; 
-    top: 0; 
-    background-color: whitesmoke;
-    padding-bottom: 5px;
-}
+/* HEADER */
 
-.barra-superior {
-    justify-content: right;
-    height: 30px;
-    display: flex;
-    background-color: #122E68;
-
-}
-
-.idiomas {
-    color: #129995;
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-.borders {
-    border-right: 2px solid white;
-    border-left: 2px solid white;
-    color: #129995;
-    padding-right: 5px;
-    padding-left: 5px;
-}
-
-.iconos-redes {
-    margin-right: 25px;
-    Margin-left: 50px;
-}
-
-img.svg {
-    width: 20px;
-    height: 20px;
-}
-
-.barra-inferior {
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: 80px;
     display: flex;
     justify-content: space-between;
-    padding: 12px;
+    background-color: white;
+    z-index: 1000;
 }
 
-
-.menu ul {
+.menus{
     display: flex;
-    gap: 50px;
-    list-style: none;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-.menu a {
-    text-decoration: none;
-    color: black;
+.logo{
+    height: 80px;
+}
+
+/* Menu Superior */
+
+.superior{
+    display: flex;
+    background-color: var(--dark-color);
+    width: 32%;
+    min-width: 340px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 25px 100%);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.idiomas :hover{
+    text-decoration: underline;
+}
+
+.superior a{
+    color: var(--main-color);
+}
+
+.superior ul{
+    gap: 5px;
+}
+
+.separacion{
+    border-right: 2px white solid;
+    border-left: 2px white solid;
+    padding: 0 3px;
+}
+
+.menus ul{
+    display: flex;
+}
+
+.superior img{
+    width: 20px;
+}
+
+header .redes{
+    gap: 5px;
+}
+
+/* Menu Inferior */
+
+.inferior{
     margin-right: 15px;
 }
 
-.menu li {
+.inferior li{
+    padding: 12px 20px;
+    margin-top: 10px;    
+}
+
+.inferior a{
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.inferior .button{
+    background-color: var(--main-color);
     font-weight: bold;
-    align-content: center;
+    border-radius: 12px;
 }
 
-.boton-contacto {
-    background-color: #129995;
-    padding: 5px;
-    border-radius: 6px;
+.inferior .button a{
+    color: var(--dark-color);
 }
 
-a.color-texto {
-    color: #122E68;
-}
+/* Lo Que Ofrecemos */
 .seccion-principal {
     margin-right: 20px;
     margin-left: 20px;
