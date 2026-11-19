@@ -1,0 +1,206 @@
+:root {
+    --main-color: #129995;
+    --dark-color: #122E68;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    z-index: 1000;
+}
+
+.menus{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.logo{
+    height: 80px;
+}
+
+/* Menu Superior */
+
+.superior{
+    display: flex;
+    background-color: var(--dark-color);
+    width: 32%;
+    min-width: 340px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 25px 100%);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.idiomas :hover{
+    text-decoration: underline;
+}
+
+.superior a{
+    color: var(--main-color);
+}
+
+.superior ul{
+    gap: 5px;
+}
+
+.separacion{
+    border-right: 2px white solid;
+    border-left: 2px white solid;
+    padding: 0 3px;
+}
+
+.menus ul{
+    display: flex;
+}
+
+.superior img{
+    width: 20px;
+}
+
+header .redes{
+    gap: 5px;
+}
+
+/* Menu Inferior */
+
+.inferior{
+    margin-right: 15px;
+}
+
+.inferior li{
+    padding: 12px 20px;
+    margin-top: 10px;    
+}
+
+.inferior a{
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.inferior .button{
+    background-color: var(--main-color);
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.inferior .button a{
+    color: var(--dark-color);
+}
+
+/* Seccion Principal */
+
+#principal{
+    width: 90%;
+    min-height: 530px;
+    margin: 20px auto;
+    border-radius: 12px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/MAIN.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#principal h1 {
+    margin: 30px 0 0 30px;
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 60%; 
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.flecha1 {
+    margin: 0 30px 30px 0;
+    position: relative;
+    align-self: flex-end; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    cursor: pointer;
+}
+
+.flecha1 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.flecha1 a {
+    position: absolute;
+    color: #000000;
+    font-size: 2.2rem;
+    font-weight: 400;
+    padding-right: 35px; 
+}
+
+/* Que Ofrecemos */
+
+.queofrecemos {
+    width: 90%;
+    min-height: 530px;
+    margin: 20px auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/img2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    height: 800px;
+    align-content: center;
+    position: relative;
+}
+.titulo {
+    font-size: 45px;
+    margin-left: 20px;
+    color: white;
+    position: absolute;
+    top: 0px;
+}
+.contenedor-tarjetas {
+    display: flex;
+    gap:50px;
+    justify-content: center;
+}
+
+.tarjeta {
+    background-color: #122E6873;
+    border-radius: 33px;
+    width:20%;
+    height: 288px;
+    backdrop-filter: blur(4px);
+}
+
+.tarjeta h2 {
+    font-size: 45px;
+    text-align: center;
+    color: white;
+}
+
+.tarjeta p {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+}
