@@ -96,11 +96,15 @@ a.color-texto {
     background-size: cover;
     border-radius: 34px;
     height: 800px;
+    align-content: center;
+    position: relative;
 }
 .titulo {
     font-size: 45px;
     margin-left: 20px;
     color: white;
+    position: absolute;
+    top: 0px;
 }
 .contenedor-tarjetas {
     display: flex;
@@ -125,4 +129,5 @@ a.color-texto {
 .tarjeta p {
     font-size: 25px;
     color: white;
+    text-align: center;
 }
