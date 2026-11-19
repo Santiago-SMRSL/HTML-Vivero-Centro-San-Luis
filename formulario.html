@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contactanos | Formulario</title>
+    <link rel="Stylesheet" a href="styles/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="barra-superior">
+            <h3 class="idiomas">Euskera</h3>
+            <div class="borders">
+                <h3 class="idioma-">Español</h3>
+            </div>
+            <h3 class="idiomas">Ingles</h3>
+            <div class="iconos-redes">
+                <img class="svg" src="linkedinblanco.svg" alt="LinkedIn"></a>
+                <img class="svg" src="youtubeblanco.svg" alt="YouTube"></a>
+                <img class="svg" src="instagramblanco.svg" alt="Instagram"></a>
+            </div>
+        </div>
+
+        <div class="barra-inferior">
+            <img src="LOGOVIVERO.svg" alt="vivero de empresas centro san luis logo">
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">¿Qué ofrecemos?</a></li>
+                <li><a href="#">Empresas</a></li>
+                <li><a href="#">Sostenibiidad</a></li>
+                <li><a href="#">Ofertas de trabajo</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <article class="questinfo">
+            <form name="formulario" method="get">
+                <div id="datoslabeluno">
+                    <label for="nombre">Nombre</label><br>
+                    <label for="apellido">Apellidos</label><br>
+                </div>
+                <div id="datosinput">
+                    <input class="datosinput" type="text" id="nombre" name="nombre" placeholder="Tu Nombre"><br>
+                    <input class="datosinput" type="text" id="apellido" name="apellido" placeholder="Tus Apellidos"><br>
+                </div>
+                <div id="datoslabeldos">
+                    <label for="email">Email</label><br>
+                    <label for="telefono">Telefono</label><br>
+                </div>
+                <div id="datosinput">
+                    <input class="datosinput" type="email" id="email" name="email" placeholder="nombre@correo.com"><br>
+                    <input class="datosinput" type="tel" id="telefono" name="telefono" placeholder="000 00 00 00"><br>
+                </div>
+                <div id="datoslabeltres">
+                    <label for="fecha">Fecha de nacimiento</label><br>
+                    <label for="edad">Edad</label><br>
+                </div>
+                <div id="datosinput">
+                    <input class="datosinput" type="date" id="fecha" name="fecha" placeholder="dd/mm/aa"><br>
+                    <input class="datosinput" type="number" id="edad" name="edad" min="16" max="99"
+                        placeholder="18 - 100"><br>
+                        <div id="datoslabelseis">
+                    <label for="contacto">Forma de contacto preferida</label>
+                </div>
+                <div id="datosinputtres">
+                    <label class="labelinputtres"><input type="radio" name="contacto" value="Email">Email</label>
+                    <label class="labelinputtres"><input type="radio" name="contacto" value="Telefono">Telefono</label>
+                    <label class="labelinputtres"><input type="radio" name="contacto" value="WhatsApp">WhatsApp</label>
+                </div>
+                <div id="datoslabelseis">
+                    <label for="tecnologia">Forma de contacto preferida</label>
+                </div>
+                </div>
+                <div id="datoslabelocho">
+                    <label for="documento">adjuntar documento</label>
+                </div>
+                <div id="datosinputcinco">
+                    <input type="file" accept="(.pdf, .doc, .docx)" id="documento">
+                </div>
+                <div id="datoslabelocho">
+                    <label for="texto">Mensaje *</label>
+                </div>
+                <textarea rows="5" cols="150" placeholder="Cuentanos tu proyecto..."></textarea>
+                <div id="datoslabelocho">
+                    <input type="checkbox">
+                    <label>he leído y acepto la politica de privacidad</label>
+                </div>
+                <div id="celdasdos">
+                    <p class="transparentemorado">Borrar</p>
+                    <p class="morado">Enviar solicitud</p>
+                </div>
+            </form>
+        </article>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
