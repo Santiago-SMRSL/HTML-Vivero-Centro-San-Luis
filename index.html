@@ -21,9 +21,12 @@
                     <li><a href="#">Euskara</a></li>
                 </ul>
                 <ul class="redes">
-                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
-                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a></li>
-                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg" alt="Logo Instagram"></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a>
+                    </li>
+                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a>
+                    </li>
+                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg"
+                                alt="Logo Instagram"></a></li>
                 </ul>
             </nav>
             <nav class="inferior" aria-label="Menú principal">
@@ -52,7 +55,8 @@
         <section class="queofrecemos" id="queofrecemos">
             <h2 class="titulo">¿Qué ofrecemos?</h2>
             <p class="intro-servicios">
-                Espacios equipados, infraestructura de red profesional, servidores dedicados y soporte técnico para impulsar el crecimiento de las empresas instaladas en el Centro San Luis.
+                Espacios equipados, infraestructura de red profesional, servidores dedicados y soporte técnico para
+                impulsar el crecimiento de las empresas instaladas en el Centro San Luis.
             </p>
 
             <div class="contenedor-tarjetas">
@@ -100,17 +104,113 @@
             <article class="subseccion" id="infraestructura-red">
                 <h3>Diseño y puesta en marcha de la infraestructura de red (P2)</h3>
                 <p>
-                    Presentación del diseño lógico y físico de la red del vivero de empresas simulado en Cisco Packet Tracer, detallando el direccionamiento IP, segmentación por VLANs, despliegue de la red LAN local y su interconexión segura con la red troncal del Centro San Luis.
+                    Diseño lógico y físico de la red corporativa del Vivero de Empresas simulado en <strong>Cisco Packet
+                        Tracer</strong>, preparado para dar servicio a <strong>6 empresas independientes</strong> con
+                    aislamiento total mediante VLANs, servicios internos centralizados, perímetro seguro en DMZ e
+                    interconexión WAN con la red del Centro San Luis.
                 </p>
-                <div class="placeholder-media">
-                    <p>[Espacio reservado para diagrama de topología en Packet Tracer / esquema de red LAN]</p>
+
+                <div class="grid-tarjetas-info">
+                    <div class="card-info">
+                        <h4>Acceso y Distribución LAN</h4>
+                        <p>3 switches Cisco 2960-24TT con 6 puntos de acceso inalámbricos que aíslan a cada empresa
+                            (VLANs 10 a 60), concentrados en Switch3 junto al servidor DHCP (VLAN 70) y la impresora
+                            compartida (VLAN 80).</p>
+                    </div>
+                    <div class="card-info">
+                        <h4>Núcleo Inter-VLAN</h4>
+                        <p>Switch multicapa Cisco 3560-24PS (SwitchL3) encargado del enrutamiento inter-VLAN mediante
+                            interfaces SVI (.254) y agente DHCP Relay hacia el servidor central (192.168.70.1).</p>
+                    </div>
+                    <div class="card-info">
+                        <h4>Firewall y Zona DMZ</h4>
+                        <p>Cisco ASA 5506-X con tres zonas de seguridad (Inside, DMZ y Outside), NAT/PAT dinámico, ACLs
+                            e inspección de protocolos para proteger los servidores públicos DNS, FTP y WEB.</p>
+                    </div>
+                    <div class="card-info">
+                        <h4>Interconexión Centro San Luis</h4>
+                        <p>Enlace WAN serial punto a punto (DCE/DTE) entre Router0 (Vivero) y Router2 (Centro) para
+                            conectar la red remota del Centro San Luis (192.168.100.0/24) con los servicios del vivero.
+                        </p>
+                    </div>
+                </div>
+
+                <h4>Resumen de segmentación y direccionamiento IP</h4>
+                <div class="tabla-contenedor">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>VLAN / Segmento</th>
+                                <th>Red / Máscara</th>
+                                <th>Puerta de enlace / Extremos</th>
+                                <th>Uso principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>VLAN 10 – 60</td>
+                                <td>192.168.10.0/24 – 192.168.60.0/24</td>
+                                <td>192.168.X.254 (SwitchL3)</td>
+                                <td>Redes aisladas de Empresa 1 a Empresa 6 (cable y Wi-Fi)</td>
+                            </tr>
+                            <tr>
+                                <td>VLAN 70 (DHCP)</td>
+                                <td>192.168.70.0/24</td>
+                                <td>192.168.70.254 (SwitchL3)</td>
+                                <td>Servidor DHCP centralizado (192.168.70.1)</td>
+                            </tr>
+                            <tr>
+                                <td>VLAN 80 (Impresoras)</td>
+                                <td>192.168.80.0/24</td>
+                                <td>192.168.80.254 (SwitchL3)</td>
+                                <td>Impresora de red compartida (192.168.80.10)</td>
+                            </tr>
+                            <tr>
+                                <td>DMZ</td>
+                                <td>192.168.200.0/24</td>
+                                <td>192.168.200.254 (ASA0)</td>
+                                <td>Servidores DNS (.2), FTP (.3) y WEB (.4) de viverosanluis.com</td>
+                            </tr>
+                            <tr>
+                                <td>Tránsito y WAN</td>
+                                <td>10.0.0.0/30 &middot; 172.16.0.0/30 &middot; 172.16.1.0/30</td>
+                                <td>SwitchL3 &harr; ASA0 &harr; Router0 &harr; Router2</td>
+                                <td>Tránsito interno L3 y enlace serial WAN (clock rate 64000)</td>
+                            </tr>
+                            <tr>
+                                <td>LAN Centro San Luis</td>
+                                <td>192.168.100.0/24</td>
+                                <td>192.168.100.1 (Router2)</td>
+                                <td>Red remota del centro y estación cliente PC12 (.10)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+               <h4>Topología de la red en Cisco Packet Tracer</h4>
+                <figure class="figura-topologia">
+                    <a href="images/P2.png" target="_blank" rel="noopener noreferrer" title="Abrir topología a tamaño completo">
+                        <img src="images/P2.png" alt="Topología de red del Vivero de Empresas en Cisco Packet Tracer con VLANs 10 a 80, DMZ y conexión WAN con Centro San Luis">
+                    </a>
+                    <figcaption>
+                        Esquema completo de la infraestructura de red (VLANs 10–60 de empresas, VLAN 70 DHCP, VLAN 80 Impresoras, DMZ y enlace WAN hacia el Centro San Luis). Haz clic en la imagen para ampliarla.
+                    </figcaption>
+                </figure>
+
+                <div class="acciones-descarga">
+                    <a href="docs/P2-Infraestructura-Red.pdf" class="btn-descarga" download>Descargar documentación P2
+                        (PDF)</a>
+                    <a href="docs/P2-Topologia-Vivero.pkt" class="btn-descarga btn-descarga-sec" download>Descargar
+                        simulación Packet Tracer (.pkt)</a>
                 </div>
             </article>
 
             <article class="subseccion" id="equipamiento">
                 <h3>Instalación de equipamiento informático y almacenamiento (P3 y P4)</h3>
                 <p>
-                    Resumen del montaje, verificación y puesta en marcha de los puestos informáticos y servidores del vivero, incluyendo el esquema de particionado, gestión de volúmenes lógicos (LVM) y organización del almacenamiento compartido para cada empresa alojada.
+                    Resumen del montaje, verificación y puesta en marcha de los puestos informáticos y servidores del
+                    vivero, incluyendo el esquema de particionado, gestión de volúmenes lógicos (LVM) y organización del
+                    almacenamiento compartido para cada empresa alojada.
                 </p>
                 <ul class="lista-detalle">
                     <li>Montaje y configuración de equipos cliente y puestos de trabajo.</li>
@@ -122,19 +222,61 @@
             <article class="subseccion" id="servicios-red">
                 <h3>Instalación y configuración de los servicios de red del vivero (P5)</h3>
                 <p>
-                    Documentación de la puesta en marcha y administración de los servicios de red en los servidores del vivero para garantizar conectividad, transferencia de archivos y gestión centralizada a las empresas residentes.
+                    Despliegue, securización y verificación de los servicios de red esenciales sobre el servidor
+                    <strong>Ubuntu Server (<code>vivero-san-luis</code>)</strong> para automatizar el direccionamiento
+                    de las empresas, habilitar el intercambio de ficheros y permitir la administración remota segura.
                 </p>
-                <ul class="lista-detalle">
-                    <li><strong>DHCP:</strong> Asignación automática de direcciones IP por subred/VLAN.</li>
-                    <li><strong>DNS / Acceso remoto:</strong> Resolución de nombres local y administración segura mediante SSH.</li>
-                    <li><strong>Transferencia y archivos:</strong> Configuración de servidores FTP y carpetas compartidas.</li>
-                </ul>
+
+                <div class="grid-tarjetas-info">
+                    <div class="card-info">
+                        <h4>DHCP Dinámico (Kea DHCPv4)</h4>
+                        <p>
+                            Configurado con <code>kea-dhcp4-server</code> y subinterfaces VLAN en Netplan
+                            (<code>enp0s8.10</code> a <code>enp0s8.60</code> y <code>enp0s8.80</code>). Reparte rangos
+                            <code>.50 – .100</code>, puerta de enlace <code>.254</code> y DNS <code>192.168.200.2</code>
+                            por cada subred.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>Transferencia de Archivos (vsftpd)</h4>
+                        <p>
+                            Servidor FTP seguro con acceso anónimo de solo lectura en <code>/srv/ftp/publico</code> y
+                            usuarios locales enjaulados (<code>chroot</code>) con permisos colaborativos de grupo
+                            (<code>local_umask=002</code>) y modo pasivo habilitado.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>Acceso Remoto por Consola (OpenSSH)</h4>
+                        <p>
+                            Administración por terminal cifrada en el puerto <code>22</code> con acceso exclusivo
+                            mediante clave pública <code>ed25519</code>, deshabilitando el login de <code>root</code> y
+                            la autenticación por contraseña.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>Escritorio Remoto Gráfico (xrdp + XFCE4)</h4>
+                        <p>
+                            Acceso gráfico ligero compatible con el cliente nativo de Escritorio Remoto de Windows por
+                            el puerto <code>3389</code>, asegurado con capa de cifrado <code>TLS</code> sobre el entorno
+                            XFCE4.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="acciones-descarga">
+                    <a href="docs/P5-Servicios-Red.pdf" class="btn-descarga" download>Descargar documentación P5
+                        (PDF)</a>
+                </div>
             </article>
 
             <article class="subseccion" id="incidencias">
                 <h3>Incidencias en la instalación y configuración</h3>
                 <p>
-                    Registro público de las incidencias detectadas durante la instalación y configuración de los servidores, junto con el diagnóstico realizado y la solución aplicada.
+                    Registro público de las incidencias detectadas durante la instalación y configuración de los
+                    servidores, junto con el diagnóstico realizado y la solución aplicada.
                 </p>
                 <div class="tabla-contenedor">
                     <table class="tabla-datos">
@@ -177,7 +319,9 @@
             <article class="subseccion" id="despliegue-aws">
                 <h3>Despliegue de aplicaciones en AWS (P10)</h3>
                 <p>
-                    Documentación del proceso de aprovisionamiento en la nube de Amazon Web Services (AWS), configuración de instancias, grupos de seguridad y publicación de las aplicaciones del vivero para su acceso exterior.
+                    Documentación del proceso de aprovisionamiento en la nube de Amazon Web Services (AWS),
+                    configuración de instancias, grupos de seguridad y publicación de las aplicaciones del vivero para
+                    su acceso exterior.
                 </p>
                 <div class="placeholder-media">
                     <p>[Espacio reservado para esquema de arquitectura y capturas de despliegue en AWS]</p>
@@ -201,9 +345,12 @@
                 </p>
                 <a href="index.html#queofrecemos" class="btn-footer">¿Qué ofrecemos?</a>
                 <ul class="footer-redes">
-                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
-                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a></li>
-                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg" alt="Logo Instagram"></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a>
+                    </li>
+                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a>
+                    </li>
+                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg"
+                                alt="Logo Instagram"></a></li>
                 </ul>
             </div>
 
@@ -242,7 +389,9 @@
 
         <div class="aviso-datos" id="proteccion-datos">
             <p>
-                <strong>Protección de datos:</strong> En cumplimiento del RGPD y la LOPDGDD, los datos personales facilitados en este sitio web serán tratados exclusivamente para atender consultas y solicitudes de alojamiento en el Vivero de Empresas Centro San Luis, sin cesión a terceros salvo obligación legal.
+                <strong>Protección de datos:</strong> En cumplimiento del RGPD y la LOPDGDD, los datos personales
+                facilitados en este sitio web serán tratados exclusivamente para atender consultas y solicitudes de
+                alojamiento en el Vivero de Empresas Centro San Luis, sin cesión a terceros salvo obligación legal.
             </p>
         </div>
 
