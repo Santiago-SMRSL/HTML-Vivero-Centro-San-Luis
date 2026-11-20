@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Vivero de Empresas Centro San Luis</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body id="inicio">
+    <header>
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="images/LOGOVIVERO.svg" alt="Logo Vivero de Empresas Centro San Luis">
+        </a>
+        <div class="menus">
+            <nav class="superior" aria-label="Idiomas y redes sociales">
+                <ul class="idiomas">
+                    <li><a href="#">Español</a></li>
+                    <li class="separacion"><a href="#">English</a></li>
+                    <li><a href="#">Euskara</a></li>
+                </ul>
+                <ul class="redes">
+                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg" alt="Logo Instagram"></a></li>
+                </ul>
+            </nav>
+            <nav class="inferior" aria-label="Menú principal">
+                <ul>
+                    <li><a href="index.html">¿Qué ofrecemos?</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                    <li><a href="ofertas.html">Ofertas de trabajo</a></li>
+                    <li class="button selected"><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="cabecera-seccion">
+            <h1>Contacto</h1>
+            <p class="resumen-seccion">
+                ¿Quieres instalar tu empresa o proyecto emprendedor en nuestro vivero? Completa el formulario y nos pondremos en contacto contigo para informarte sobre disponibilidad y servicios.
+            </p>
+        </section>
+
+        <section class="bloque-contenido">
+            <h2>Solicitud de Alojamiento en el Vivero</h2>
+
+            <div class="grid-dos-columnas">
+                <article class="subseccion">
+                    <h3>Formulario de contacto</h3>
+                    <form action="#" method="post" class="formulario-contacto">
+                        <div class="campo-form">
+                            <label for="empresa">Nombre de la empresa o proyecto *</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Ej. Innovación Digital S.L." required>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="nombre">Persona de contacto *</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" placeholder="correo@empresa.com" required>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="600 000 000">
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="puestos">Número aproximado de puestos necesarios</label>
+                            <select id="puestos" name="puestos">
+                                <option value="1-2">1 - 2 puestos</option>
+                                <option value="3-5">3 - 5 puestos</option>
+                                <option value="6-10">6 - 10 puestos</option>
+                                <option value="mas-10">Más de 10 puestos</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-form">
+                            <label for="mensaje">Descripción del proyecto y necesidades técnicas *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tu actividad, servicios de red, almacenamiento o necesidades de espacio..." required></textarea>
+                        </div>
+
+                        <div class="campo-checkbox">
+                            <input type="checkbox" id="privacidad" name="privacidad" required>
+                            <label for="privacidad">He leído y acepto la política de privacidad y protección de datos.</label>
+                        </div>
+
+                        <button type="submit" class="btn-enviar">Enviar solicitud</button>
+                    </form>
+                </article>
+
+                <article class="subseccion" id="ubicacion">
+                    <h3>Información del Vivero</h3>
+                    <p><strong>Centro:</strong> Vivero de Empresas Centro San Luis</p>
+                    <p><strong>Dirección:</strong> Licenciado Poza, 31, 48011 Bilbao, Bizkaia</p>
+                    <p><strong>Horario de atención:</strong> Lunes a viernes, de 08:30 a 14:30 y de 16:00 a 19:00</p>
+                    <p><strong>Correo de contacto:</strong> vivero@centrosanluis.com</p>
+
+                    <div class="placeholder-media">
+                        <p>[Espacio opcional para mapa de ubicación o imagen del centro]</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <a href="#inicio" class="btn-subir" aria-label="Volver al inicio">
+        <img src="images/MiniFletcha.png" alt="Subir">
+    </a>
+
+    <footer>
+        <div class="sec1">
+            <div class="footer-info">
+                <a href="index.html">
+                    <img class="logo2" src="images/LOGOVIVERO Blanco.svg" alt="Logo Vivero San Luis">
+                </a>
+                <p>
+                    Espacio de apoyo al emprendimiento y servicios tecnológicos gestionado en el Centro San Luis.
+                </p>
+                <a href="index.html#queofrecemos" class="btn-footer">¿Qué ofrecemos?</a>
+                <ul class="footer-redes">
+                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg" alt="Logo Instagram"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-enlaces">
+                <div class="columna-enlaces">
+                    <h4>Vivero</h4>
+                    <ul>
+                        <li><a href="index.html">¿Qué ofrecemos?</a></li>
+                        <li><a href="empresas.html">Empresas</a></li>
+                        <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                        <li><a href="ofertas.html">Ofertas de trabajo</a></li>
+                    </ul>
+                </div>
+
+                <div class="columna-enlaces">
+                    <h4>Servicios IT</h4>
+                    <ul>
+                        <li><a href="index.html#infraestructura-red">Infraestructura de red</a></li>
+                        <li><a href="index.html#equipamiento">Equipamiento</a></li>
+                        <li><a href="index.html#servicios-red">Servicios de red</a></li>
+                        <li><a href="index.html#despliegue-aws">Despliegue AWS</a></li>
+                    </ul>
+                </div>
+
+                <div class="columna-enlaces">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="index.html#incidencias">Incidencias</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="contacto.html#ubicacion">Ubicación</a></li>
+                        <li><a href="#proteccion-datos">Protección de datos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="aviso-datos" id="proteccion-datos">
+            <p>
+                <strong>Protección de datos:</strong> En cumplimiento del RGPD y la LOPDGDD, los datos personales facilitados en este sitio web serán tratados exclusivamente para atender consultas y solicitudes de alojamiento en el Vivero de Empresas Centro San Luis, sin cesión a terceros salvo obligación legal.
+            </p>
+        </div>
+
+        <div class="sec2">
+            <p>Vivero de Empresas Centro San Luis &copy; 2026 &middot; Todos los derechos reservados</p>
+            <p>Página diseñada por: Santiago | Raul | Jon | Unax</p>
+            <nav aria-label="Enlaces legales">
+                <ul>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>

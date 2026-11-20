@@ -1,66 +1,263 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Que Ofrecemos</title>
-    <link rel="Stylesheet" a href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué ofrecemos? | Vivero de Empresas Centro San Luis</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body id="inicio">
     <header>
-        <img class="logo" src="LOGOVIVERO.svg" alt="Logo vivero San Luis">
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="images/LOGOVIVERO.svg" alt="Logo Vivero de Empresas Centro San Luis">
+        </a>
         <div class="menus">
-            <nav class="superior">
+            <nav class="superior" aria-label="Idiomas y redes sociales">
                 <ul class="idiomas">
-                    <li><a href="">Español</a></li>
-                    <li class="separacion"><a href="">Ingles</a></li>
-                    <li><a href="">Euskera</a></li>
+                    <li><a href="#">Español</a></li>
+                    <li class="separacion"><a href="#">English</a></li>
+                    <li><a href="#">Euskara</a></li>
                 </ul>
                 <ul class="redes">
-                    <li><a href=""><img src="linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
-                    <li><a href=""><img src="youtubeblanco.svg" alt="Logo Youtube"></a></li>
-                    <li><a href=""><img src="instagramblanco.svg" alt="Logo Instagram"></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg" alt="Logo Instagram"></a></li>
                 </ul>
             </nav>
-            <nav class="inferior">
+            <nav class="inferior" aria-label="Menú principal">
                 <ul>
-                    <li class="selected"><a href="#queofrecemos">¿Qué ofrecemos?</a></li>
-                    <li><a href="">Empresas</a></li>
-                    <li><a href="">Sostenibilidad</a></li>
-                    <li><a href="">Ofertas de trabajo</a></li>
-                    <li class="button"><a href="">Contacto</a></li>
+                    <li class="selected"><a href="index.html">¿Qué ofrecemos?</a></li>
+                    <li><a href="empresas.html">Empresas</a></li>
+                    <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                    <li><a href="ofertas.html">Ofertas de trabajo</a></li>
+                    <li class="button"><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <main class="principal">
-<section class="seccion-principal">
-            <h1 class="titulo">Que Ofrecemos</h1>
+
+    <main>
+        <!-- Portada principal -->
+        <section id="principal">
+            <h1>BIENVENIDOS AL VIVERO DE EMPRESAS SAN LUIS</h1>
+            <a href="#queofrecemos" class="flecha1">
+                <img src="images/Fletcha.png" alt="Flecha empezar">
+                <span>Empezar</span>
+            </a>
+        </section>
+
+        <!-- Resumen de servicios -->
+        <section class="queofrecemos" id="queofrecemos">
+            <h2 class="titulo">¿Qué ofrecemos?</h2>
+            <p class="intro-servicios">
+                Espacios equipados, infraestructura de red profesional, servidores dedicados y soporte técnico para impulsar el crecimiento de las empresas instaladas en el Centro San Luis.
+            </p>
 
             <div class="contenedor-tarjetas">
                 <article class="tarjeta">
-                    <h2>?</h2>
-                    ><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>01</h3>
+                    <h4>Infraestructura de red</h4>
+                    <p>Diseño en Packet Tracer, despliegue de red LAN y conexión con la red del Centro San Luis.</p>
+                    <a href="#infraestructura-red" class="link-tarjeta">Ver detalle</a>
                 </article>
 
                 <article class="tarjeta">
-                    <h2>?</h2>
-                    ><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>02</h3>
+                    <h4>Equipamiento y almacenamiento</h4>
+                    <p>Instalación del hardware del vivero y configuración estructurada del almacenamiento.</p>
+                    <a href="#equipamiento" class="link-tarjeta">Ver detalle</a>
                 </article>
 
                 <article class="tarjeta">
-                    <h2>?</h2>
-                    ><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>03</h3>
+                    <h4>Servicios de red</h4>
+                    <p>Despliegue y administración de los servicios esenciales en los servidores del vivero.</p>
+                    <a href="#servicios-red" class="link-tarjeta">Ver detalle</a>
                 </article>
 
                 <article class="tarjeta">
-                    <h2>?</h2>
-                    ><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>04</h3>
+                    <h4>Incidencias</h4>
+                    <p>Registro técnico y resolución documentada de incidencias durante la puesta en marcha.</p>
+                    <a href="#incidencias" class="link-tarjeta">Ver detalle</a>
                 </article>
-</div>
-</section>
+
+                <article class="tarjeta">
+                    <h3>05</h3>
+                    <h4>Despliegue en AWS</h4>
+                    <p>Publicación y puesta en producción de aplicaciones empresariales en la nube de AWS.</p>
+                    <a href="#despliegue-aws" class="link-tarjeta">Ver detalle</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Desarrollo de los servicios del vivero -->
+        <section class="bloque-contenido" id="servicios-detalle">
+            <h2>Servicios e Infraestructura Tecnológica</h2>
+
+            <article class="subseccion" id="infraestructura-red">
+                <h3>Diseño y puesta en marcha de la infraestructura de red (P2)</h3>
+                <p>
+                    Presentación del diseño lógico y físico de la red del vivero de empresas simulado en Cisco Packet Tracer, detallando el direccionamiento IP, segmentación por VLANs, despliegue de la red LAN local y su interconexión segura con la red troncal del Centro San Luis.
+                </p>
+                <div class="placeholder-media">
+                    <p>[Espacio reservado para diagrama de topología en Packet Tracer / esquema de red LAN]</p>
+                </div>
+            </article>
+
+            <article class="subseccion" id="equipamiento">
+                <h3>Instalación de equipamiento informático y almacenamiento (P3 y P4)</h3>
+                <p>
+                    Resumen del montaje, verificación y puesta en marcha de los puestos informáticos y servidores del vivero, incluyendo el esquema de particionado, gestión de volúmenes lógicos (LVM) y organización del almacenamiento compartido para cada empresa alojada.
+                </p>
+                <ul class="lista-detalle">
+                    <li>Montaje y configuración de equipos cliente y puestos de trabajo.</li>
+                    <li>Instalación del sistema operativo en el servidor del vivero.</li>
+                    <li>Distribución del almacenamiento, particiones y cuotas para empresas.</li>
+                </ul>
+            </article>
+
+            <article class="subseccion" id="servicios-red">
+                <h3>Instalación y configuración de los servicios de red del vivero (P5)</h3>
+                <p>
+                    Documentación de la puesta en marcha y administración de los servicios de red en los servidores del vivero para garantizar conectividad, transferencia de archivos y gestión centralizada a las empresas residentes.
+                </p>
+                <ul class="lista-detalle">
+                    <li><strong>DHCP:</strong> Asignación automática de direcciones IP por subred/VLAN.</li>
+                    <li><strong>DNS / Acceso remoto:</strong> Resolución de nombres local y administración segura mediante SSH.</li>
+                    <li><strong>Transferencia y archivos:</strong> Configuración de servidores FTP y carpetas compartidas.</li>
+                </ul>
+            </article>
+
+            <article class="subseccion" id="incidencias">
+                <h3>Incidencias en la instalación y configuración</h3>
+                <p>
+                    Registro público de las incidencias detectadas durante la instalación y configuración de los servidores, junto con el diagnóstico realizado y la solución aplicada.
+                </p>
+                <div class="tabla-contenedor">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Fecha</th>
+                                <th>Servicio / Equipo</th>
+                                <th>Descripción de la incidencia</th>
+                                <th>Solución aplicada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>INC-01</td>
+                                <td>--/--/2026</td>
+                                <td>Red / Interfaces</td>
+                                <td>[Describir incidencia detectada en la configuración de red]</td>
+                                <td>[Describir resolución aplicada]</td>
+                            </tr>
+                            <tr>
+                                <td>INC-02</td>
+                                <td>--/--/2026</td>
+                                <td>Servidor DHCP / FTP</td>
+                                <td>[Describir incidencia en el arranque o permisos del servicio]</td>
+                                <td>[Describir resolución aplicada]</td>
+                            </tr>
+                            <tr>
+                                <td>INC-03</td>
+                                <td>--/--/2026</td>
+                                <td>Almacenamiento</td>
+                                <td>[Describir incidencia de montaje o particionado]</td>
+                                <td>[Describir resolución aplicada]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="subseccion" id="despliegue-aws">
+                <h3>Despliegue de aplicaciones en AWS (P10)</h3>
+                <p>
+                    Documentación del proceso de aprovisionamiento en la nube de Amazon Web Services (AWS), configuración de instancias, grupos de seguridad y publicación de las aplicaciones del vivero para su acceso exterior.
+                </p>
+                <div class="placeholder-media">
+                    <p>[Espacio reservado para esquema de arquitectura y capturas de despliegue en AWS]</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <a href="#inicio" class="btn-subir" aria-label="Volver al inicio">
+        <img src="images/MiniFletcha.png" alt="Subir">
+    </a>
+
+    <footer>
+        <div class="sec1">
+            <div class="footer-info">
+                <a href="index.html">
+                    <img class="logo2" src="images/LOGOVIVERO Blanco.svg" alt="Logo Vivero San Luis">
+                </a>
+                <p>
+                    Espacio de apoyo al emprendimiento y servicios tecnológicos gestionado en el Centro San Luis.
+                </p>
+                <a href="index.html#queofrecemos" class="btn-footer">¿Qué ofrecemos?</a>
+                <ul class="footer-redes">
+                    <li><a href="#" aria-label="LinkedIn"><img src="images/linkedinblanco.svg" alt="Logo LinkedIn"></a></li>
+                    <li><a href="#" aria-label="YouTube"><img src="images/youtubeblanco.svg" alt="Logo YouTube"></a></li>
+                    <li><a href="#" aria-label="Instagram"><img src="images/instagramblanco.svg" alt="Logo Instagram"></a></li>
+                </ul>
+            </div>
+
+            <div class="footer-enlaces">
+                <div class="columna-enlaces">
+                    <h4>Vivero</h4>
+                    <ul>
+                        <li><a href="index.html">¿Qué ofrecemos?</a></li>
+                        <li><a href="empresas.html">Empresas</a></li>
+                        <li><a href="sostenibilidad.html">Sostenibilidad</a></li>
+                        <li><a href="ofertas.html">Ofertas de trabajo</a></li>
+                    </ul>
+                </div>
+
+                <div class="columna-enlaces">
+                    <h4>Servicios IT</h4>
+                    <ul>
+                        <li><a href="index.html#infraestructura-red">Infraestructura de red</a></li>
+                        <li><a href="index.html#equipamiento">Equipamiento</a></li>
+                        <li><a href="index.html#servicios-red">Servicios de red</a></li>
+                        <li><a href="index.html#despliegue-aws">Despliegue AWS</a></li>
+                    </ul>
+                </div>
+
+                <div class="columna-enlaces">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="index.html#incidencias">Incidencias</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="contacto.html#ubicacion">Ubicación</a></li>
+                        <li><a href="#proteccion-datos">Protección de datos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="aviso-datos" id="proteccion-datos">
+            <p>
+                <strong>Protección de datos:</strong> En cumplimiento del RGPD y la LOPDGDD, los datos personales facilitados en este sitio web serán tratados exclusivamente para atender consultas y solicitudes de alojamiento en el Vivero de Empresas Centro San Luis, sin cesión a terceros salvo obligación legal.
+            </p>
+        </div>
+
+        <div class="sec2">
+            <p>Vivero de Empresas Centro San Luis &copy; 2026 &middot; Todos los derechos reservados</p>
+            <p>Página diseñada por: Santiago | Raul | Jon | Unax</p>
+            <nav aria-label="Enlaces legales">
+                <ul>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
