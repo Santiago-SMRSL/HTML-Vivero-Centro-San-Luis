@@ -205,7 +205,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 445px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
@@ -223,7 +223,7 @@ header {
 .flecha1 span {
     position: absolute;
     color: #000000;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     padding-right: 35px;
 }
