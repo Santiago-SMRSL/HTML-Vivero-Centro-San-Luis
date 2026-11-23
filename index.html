@@ -187,13 +187,16 @@
                     </table>
                 </div>
 
-               <h4>Topología de la red en Cisco Packet Tracer</h4>
+                <h4>Topología de la red en Cisco Packet Tracer</h4>
                 <figure class="figura-topologia">
-                    <a href="images/P2.png" target="_blank" rel="noopener noreferrer" title="Abrir topología a tamaño completo">
-                        <img src="images/P2.png" alt="Topología de red del Vivero de Empresas en Cisco Packet Tracer con VLANs 10 a 80, DMZ y conexión WAN con Centro San Luis">
+                    <a href="images/P2.png" target="_blank" rel="noopener noreferrer"
+                        title="Abrir topología a tamaño completo">
+                        <img src="images/P2.png"
+                            alt="Topología de red del Vivero de Empresas en Cisco Packet Tracer con VLANs 10 a 80, DMZ y conexión WAN con Centro San Luis">
                     </a>
                     <figcaption>
-                        Esquema completo de la infraestructura de red (VLANs 10–60 de empresas, VLAN 70 DHCP, VLAN 80 Impresoras, DMZ y enlace WAN hacia el Centro San Luis). Haz clic en la imagen para ampliarla.
+                        Esquema completo de la infraestructura de red (VLANs 10–60 de empresas, VLAN 70 DHCP, VLAN 80
+                        Impresoras, DMZ y enlace WAN hacia el Centro San Luis). Haz clic en la imagen para ampliarla.
                     </figcaption>
                 </figure>
 
@@ -208,15 +211,105 @@
             <article class="subseccion" id="equipamiento">
                 <h3>Instalación de equipamiento informático y almacenamiento (P3 y P4)</h3>
                 <p>
-                    Resumen del montaje, verificación y puesta en marcha de los puestos informáticos y servidores del
-                    vivero, incluyendo el esquema de particionado, gestión de volúmenes lógicos (LVM) y organización del
-                    almacenamiento compartido para cada empresa alojada.
+                    Despliegue completo del servidor del vivero sobre <strong>Ubuntu Server 26.04 LTS</strong>,
+                    combinando una configuración de hardware redundante y segura con una matriz de almacenamiento
+                    <strong>RAID 10</strong> aislada para las 6 empresas alojadas.
                 </p>
-                <ul class="lista-detalle">
-                    <li>Montaje y configuración de equipos cliente y puestos de trabajo.</li>
-                    <li>Instalación del sistema operativo en el servidor del vivero.</li>
-                    <li>Distribución del almacenamiento, particiones y cuotas para empresas.</li>
-                </ul>
+
+                <div class="grid-tarjetas-info">
+                    <div class="card-info">
+                        <h4>Hardware y BIOS / UEFI (P3)</h4>
+                        <p>
+                            Servidor equipado con procesador Intel Xeon E-2336 / Core i9, <strong>32 GB RAM DDR4
+                                ECC</strong>, doble interfaz Gigabit Ethernet y <strong>SAI Online de 1500 VA</strong>.
+                            En UEFI se fija el arranque exclusivo en disco RAID (deshabilitando USB y PXE), contraseña
+                            de administrador, <strong>Secure Boot</strong> y reloj en UTC.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>Sistema Base, Red y Bastionado (P3)</h4>
+                        <p>
+                            Instalación limpia de Ubuntu Server con particionado <strong>LVM</strong>, subinterfaces
+                            VLAN (10–60 y 80) en Netplan con <code>ip_forward=1</code>, restricción de <code>su</code>
+                            mediante <code>pam_wheel</code>, cortafuegos <strong>UFW</strong> (denegación por defecto) y
+                            bóveda cifrada en <strong>KeePassXC</strong> (KDBX 4, AES-256 y Argon2d).
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>Montaje Físico y RAID 10 (P4)</h4>
+                        <p>
+                            Separación entre 1 SSD de sistema (<code>/dev/sda</code>) y 4 HDD dedicados
+                            (<code>/dev/sdb</code>–<code>/dev/sde</code>) sobre controladora PCIe con batería
+                            <strong>BBU</strong> en modo JBOD/Pass-Through. Creación del volumen lógico
+                            <code>/dev/md0</code> en <strong>RAID 10</strong> con <code>mdadm</code>, formateado en
+                            <code>ext4</code> y montado por UUID en <code>/srv/vivero_empresas</code>.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>Aislamiento de Empresas (P4)</h4>
+                        <p>
+                            Creación automatizada de 6 grupos (<code>empresa1</code> a <code>empresa6</code>) y sus
+                            carpetas con propietario <code>root:empresaX</code>, permisos <strong><code>2770</code>
+                                (<code>rwxrws---</code>)</strong> con herencia de grupo SGID y listas
+                            <strong>ACL</strong> por defecto (<code>g::rwx,o::---</code>), bloqueando cualquier acceso
+                            cruzado.
+                        </p>
+                    </div>
+                </div>
+
+                <h4>Resumen técnico de la configuración P3 y P4</h4>
+                <div class="tabla-contenedor">
+                    <table class="tabla-datos">
+                        <thead>
+                            <tr>
+                                <th>Bloque</th>
+                                <th>Tecnología / Parámetro</th>
+                                <th>Detalle aplicado en el vivero</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Almacenamiento SO y Datos</td>
+                                <td>RAID 1 (SO) / RAID 10 (<code>/dev/md0</code>)</td>
+                                <td>2× NVMe M.2 1 TB para SO y 4× HDD SATA en espejo + striping con caché protegida por
+                                    BBU.</td>
+                            </tr>
+                            <tr>
+                                <td>Punto de montaje</td>
+                                <td><code>/srv/vivero_empresas</code> (ext4)</td>
+                                <td>Etiqueta <code>VIVERO_RAID10</code>, persistencia en
+                                    <code>/etc/mdadm/mdadm.conf</code> y montaje por UUID en <code>/etc/fstab</code>.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Permisos corporativos</td>
+                                <td><code>2770</code> (SGID) + ACL por defecto</td>
+                                <td>Herencia automática de grupo <code>empresaX</code> y denegación total para el resto
+                                    de empresas.</td>
+                            </tr>
+                            <tr>
+                                <td>Seguridad del servidor</td>
+                                <td>UFW, PAM y KeePassXC</td>
+                                <td>Puertos abiertos: SSH (22/TCP), DHCP (67/UDP) y FTP (20-21 y 40000-40100/TCP); grupo
+                                    <code>wheel</code> para <code>su</code>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="acciones-descarga">
+                    <a href="docs/P3-Equipamiento-Informatico.pdf" class="btn-descarga"
+                        download="P3-Equipamiento-Informatico.pdf">Descargar P3 Completo (PDF)</a>
+                    <a href="docs/P3-Cuaderno-Campo.pdf" class="btn-descarga btn-descarga-sec"
+                        download="P3-Cuaderno-Campo.pdf">Cuaderno de Campo P3 (PDF)</a>
+                    <a href="docs/P4-Almacenamiento-Vivero.pdf" class="btn-descarga"
+                        download="P4-Almacenamiento-Vivero.pdf">Descargar P4 Completo (PDF)</a>
+                    <a href="docs/P4-Cuaderno-Campo.pdf" class="btn-descarga btn-descarga-sec"
+                        download="P4-Cuaderno-Campo.pdf">Cuaderno de Campo P4 (PDF)</a>
+                </div>
             </article>
 
             <article class="subseccion" id="servicios-red">
@@ -275,41 +368,36 @@
             <article class="subseccion" id="incidencias">
                 <h3>Incidencias en la instalación y configuración</h3>
                 <p>
-                    Registro público de las incidencias detectadas durante la instalación y configuración de los
-                    servidores, junto con el diagnóstico realizado y la solución aplicada.
+                    Registro documentado de las incidencias detectadas durante la puesta en marcha física y lógica del almacenamiento y los servidores del vivero, junto con la solución aplicada para dejar el sistema operativo.
                 </p>
                 <div class="tabla-contenedor">
                     <table class="tabla-datos">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Fecha</th>
-                                <th>Servicio / Equipo</th>
-                                <th>Descripción de la incidencia</th>
+                                <th>Fase / Equipo</th>
+                                <th>Incidencia detectada</th>
                                 <th>Solución aplicada</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>INC-01</td>
-                                <td>--/--/2026</td>
-                                <td>Red / Interfaces</td>
-                                <td>[Describir incidencia detectada en la configuración de red]</td>
-                                <td>[Describir resolución aplicada]</td>
+                                <td>Instalación física / Controladora</td>
+                                <td>La controladora PCIe en modo RAID Hardware ocultaba los 4 discos HDD individuales al sistema operativo.</td>
+                                <td>Reconfiguración en la utilidad de la controladora a modo <strong>JBOD / Pass-Through</strong> manteniendo activa la batería BBU.</td>
                             </tr>
                             <tr>
                                 <td>INC-02</td>
-                                <td>--/--/2026</td>
-                                <td>Servidor DHCP / FTP</td>
-                                <td>[Describir incidencia en el arranque o permisos del servicio]</td>
-                                <td>[Describir resolución aplicada]</td>
+                                <td>Creación RAID 10 (<code>mdadm</code>)</td>
+                                <td>Presencia de metadatos antiguos en <code>/dev/sdc</code> y cambio de nombre del array tras reiniciar el servidor.</td>
+                                <td>Limpieza previa con <code>wipefs -a</code>, registro del array en <code>/etc/mdadm/mdadm.conf</code>, actualización de <code>initramfs</code> y montaje por <strong>UUID</strong> en <code>/etc/fstab</code>.</td>
                             </tr>
                             <tr>
                                 <td>INC-03</td>
-                                <td>--/--/2026</td>
-                                <td>Almacenamiento</td>
-                                <td>[Describir incidencia de montaje o particionado]</td>
-                                <td>[Describir resolución aplicada]</td>
+                                <td>Permisos y aislamiento (P4)</td>
+                                <td>La máscara por defecto <code>umask 0022</code> limitaba los permisos de escritura grupal sobre archivos nuevos dentro de cada empresa.</td>
+                                <td>Aplicación de <strong>ACL por defecto</strong> (<code>setfacl -R -d -m g::rwx,o::---</code>) combinada con el bit SGID (<code>2770</code>).</td>
                             </tr>
                         </tbody>
                     </table>
