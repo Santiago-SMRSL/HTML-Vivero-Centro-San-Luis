@@ -567,6 +567,27 @@ header {
 .dafo-o { border-left-color: var(--main-color); }
 .dafo-a { border-left-color: #e74c3c; }
 
+/* Ofertas de trabajo y desplegables de entrevista (P6) */
+.grid-ofertas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.etiqueta-portal {
+    display: inline-block;
+    background-color: var(--main-color);
+    color: var(--light-color);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
 .meta-oferta {
     font-size: 0.9rem;
     color: #b8d8d7;
