@@ -294,7 +294,8 @@
                                 <td>Seguridad del servidor</td>
                                 <td>UFW, PAM y KeePassXC</td>
                                 <td>Puertos abiertos: SSH (22/TCP), DHCP (67/UDP) y FTP (20-21 y 40000-40100/TCP); grupo
-                                    <code>wheel</code> para <code>su</code>.</td>
+                                    <code>wheel</code> para <code>su</code>.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -368,14 +369,15 @@
             <article class="subseccion" id="incidencias">
                 <h3>Incidencias en la instalación y configuración</h3>
                 <p>
-                    Registro documentado de las incidencias detectadas durante la puesta en marcha física y lógica del almacenamiento y los servidores del vivero, junto con la solución aplicada para dejar el sistema operativo.
+                    Registro de las incidencias técnicas surgidas durante la puesta en marcha y despliegue del servidor
+                    web en la nube de AWS, junto con la solución aplicada para resolverlas.
                 </p>
                 <div class="tabla-contenedor">
                     <table class="tabla-datos">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Fase / Equipo</th>
+                                <th>Servicio / Entorno</th>
                                 <th>Incidencia detectada</th>
                                 <th>Solución aplicada</th>
                             </tr>
@@ -383,21 +385,19 @@
                         <tbody>
                             <tr>
                                 <td>INC-01</td>
-                                <td>Instalación física / Controladora</td>
-                                <td>La controladora PCIe en modo RAID Hardware ocultaba los 4 discos HDD individuales al sistema operativo.</td>
-                                <td>Reconfiguración en la utilidad de la controladora a modo <strong>JBOD / Pass-Through</strong> manteniendo activa la batería BBU.</td>
+                                <td>AWS EC2 / Grupo de Seguridad</td>
+                                <td>No se dispone de acceso externo a la página web cargada en la instancia de AWS desde
+                                    el navegador.</td>
+                                <td>Modificación de las reglas de entrada del Security Group en AWS para abrir los
+                                    puertos <strong>80 (HTTP)</strong> y <strong>443 (HTTPS)</strong>.</td>
                             </tr>
                             <tr>
                                 <td>INC-02</td>
-                                <td>Creación RAID 10 (<code>mdadm</code>)</td>
-                                <td>Presencia de metadatos antiguos en <code>/dev/sdc</code> y cambio de nombre del array tras reiniciar el servidor.</td>
-                                <td>Limpieza previa con <code>wipefs -a</code>, registro del array en <code>/etc/mdadm/mdadm.conf</code>, actualización de <code>initramfs</code> y montaje por <strong>UUID</strong> en <code>/etc/fstab</code>.</td>
-                            </tr>
-                            <tr>
-                                <td>INC-03</td>
-                                <td>Permisos y aislamiento (P4)</td>
-                                <td>La máscara por defecto <code>umask 0022</code> limitaba los permisos de escritura grupal sobre archivos nuevos dentro de cada empresa.</td>
-                                <td>Aplicación de <strong>ACL por defecto</strong> (<code>setfacl -R -d -m g::rwx,o::---</code>) combinada con el bit SGID (<code>2770</code>).</td>
+                                <td>Servidor Apache2 (<code>/var/www/html</code>)</td>
+                                <td>No es posible cargar los archivos HTML y carpetas del sitio web en el servidor AWS
+                                    por restricción de permisos.</td>
+                                <td>Cambio de usuario propietario y grupo del directorio <code>/var/www/html</code> para
+                                    habilitar la subida y gestión de los archivos.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -407,12 +407,55 @@
             <article class="subseccion" id="despliegue-aws">
                 <h3>Despliegue de aplicaciones en AWS (P10)</h3>
                 <p>
-                    Documentación del proceso de aprovisionamiento en la nube de Amazon Web Services (AWS),
-                    configuración de instancias, grupos de seguridad y publicación de las aplicaciones del vivero para
-                    su acceso exterior.
+                    Estudio comparativo de proveedores cloud, diseño de la arquitectura de alojamiento y copias de
+                    seguridad, y despliegue práctico de la web institucional del vivero sobre una instancia
+                    <strong>Amazon EC2</strong> con <strong>Ubuntu Server 26.04 LTS</strong> y servidor web
+                    <strong>Apache2</strong>.
                 </p>
-                <div class="placeholder-media">
-                    <p>[Espacio reservado para esquema de arquitectura y capturas de despliegue en AWS]</p>
+
+                <div class="grid-tarjetas-info">
+                    <div class="card-info">
+                        <h4>1. Selección de Proveedor Cloud</h4>
+                        <p>
+                            Comparativa entre <strong>AWS</strong>, <strong>Microsoft Azure</strong> y <strong>Google
+                                Cloud (GCP)</strong> según coste, sencillez de administración y servicios disponibles.
+                            Se selecciona AWS para el entorno práctico de despliegue y pruebas en laboratorio.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>2. Arquitectura y Backups</h4>
+                        <p>
+                            Esquema modular basado en <strong>Amazon S3</strong> para recursos estáticos, <strong>Amazon
+                                EC2</strong> para la aplicación web y formularios, <strong>RDS / DynamoDB</strong> para
+                            datos y <strong>AWS Backup / S3 Versioning</strong> para copias periódicas seguras.
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>3. Instancia EC2 y Conexión SSH</h4>
+                        <p>
+                            Lanzamiento de una instancia <code>t3.micro</code> con imagen <strong>Ubuntu Server 26.04
+                                LTS</strong> en AWS Academy Learner Lab, descarga del par de claves <code>.ppk</code> y
+                            administración remota segura mediante <strong>MobaXterm</strong> (usuario
+                            <code>ubuntu</code>).
+                        </p>
+                    </div>
+
+                    <div class="card-info">
+                        <h4>4. Servidor Web Apache2 y Publicación</h4>
+                        <p>
+                            Instalación y arranque de <code>apache2</code>, transferencia de todos los HTML, estilos,
+                            imágenes y documentos a <code>/var/www/html/</code> y verificación del acceso público
+                            mediante la dirección IPv4 asignada a la instancia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="acciones-descarga">
+                    <a href="docs/P10-Despliegue-AWS.pdf" class="btn-descarga" download="P10-Despliegue-AWS.pdf">
+                        Descargar documentación P10 (PDF)
+                    </a>
                 </div>
             </article>
         </section>

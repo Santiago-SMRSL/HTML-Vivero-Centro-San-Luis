@@ -71,6 +71,7 @@ header {
 }
 
 /* Barra superior (idiomas + redes) */
+
 .superior {
     display: flex;
     background-color: var(--dark-color);
@@ -118,6 +119,7 @@ header {
 }
 
 /* Barra inferior (menú principal) */
+
 .inferior {
     margin-right: 20px;
     padding-bottom: 10px;
@@ -153,6 +155,7 @@ header {
 }
 
 /* Botón Contacto */
+
 .inferior .button {
     padding: 0;
 }
@@ -354,7 +357,7 @@ header {
     border-radius: 12px;
 }
 
-.bloque-contenido > h2 {
+.bloque-contenido>h2 {
     font-size: 2.2rem;
     margin-bottom: 30px;
     padding-bottom: 10px;
@@ -399,7 +402,7 @@ header {
     color: #eef3fa;
 }
 
-.subseccion > h4 {
+.subseccion>h4 {
     margin-top: 24px;
     margin-bottom: 10px;
     color: var(--light-color);
@@ -416,6 +419,7 @@ header {
 }
 
 /* Logotipo y vídeo de la Ikasempresa (Empresas) */
+
 .logo-ikasempresa {
     display: flex;
     align-items: center;
@@ -454,6 +458,7 @@ header {
 
 
 /* Barra de botones de descarga */
+
 .acciones-descarga {
     display: flex;
     flex-wrap: wrap;
@@ -493,6 +498,7 @@ header {
 }
 
 /* Imagen de topología (P2) */
+
 .figura-topologia {
     margin-top: 15px;
     background-color: var(--light-color);
@@ -530,6 +536,7 @@ header {
 }
 
 /* Grids y tarjetas internas */
+
 .grid-dos-columnas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -555,6 +562,7 @@ header {
 }
 
 /* Cuadrícula DAFO 2x2 (Empresas) */
+
 .grid-dafo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -562,12 +570,24 @@ header {
     margin-top: 15px;
 }
 
-.dafo-f { border-left-color: #2ecc71; }
-.dafo-d { border-left-color: #f39c12; }
-.dafo-o { border-left-color: var(--main-color); }
-.dafo-a { border-left-color: #e74c3c; }
+.dafo-f {
+    border-left-color: #2ecc71;
+}
+
+.dafo-d {
+    border-left-color: #f39c12;
+}
+
+.dafo-o {
+    border-left-color: var(--main-color);
+}
+
+.dafo-a {
+    border-left-color: #e74c3c;
+}
 
 /* Ofertas de trabajo y desplegables de entrevista (P6) */
+
 .grid-ofertas {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -611,6 +631,7 @@ header {
 }
 
 /* Espacios para imágenes / vídeos */
+
 .placeholder-media {
     margin-top: 15px;
     padding: 40px 20px;
@@ -628,6 +649,7 @@ header {
 }
 
 /* Tablas (Incidencias e IoT) */
+
 .tabla-contenedor {
     overflow-x: auto;
     margin-top: 15px;
@@ -709,6 +731,30 @@ header {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
+
+/* Imagen exterior del vivero (Contacto) */
+
+.figura-vivero {
+    margin-top: 18px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--main-color);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.figura-vivero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.figura-vivero figcaption {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: #eef3fa;
+    text-align: center;
+}
+
 
 /* BOTÓN FLOTANTE SUBIR */
 
