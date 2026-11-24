@@ -61,3 +61,12 @@ El portal reúne los servicios e infraestructura tecnológica del vivero, la doc
     ├── P8-Sostenibilidad-Vivero.pdf
     ├── P9-Soluciones-IoT.pdf
     └── P10-Despliegue-AWS.pdf
+
+    ## Autores
+
+Proyecto realizado por alumnos de **2.º SMR — Centro San Luis (2026)**:
+
+* Santiago
+* Raúl
+* Unax
+* Jon Enaitz
