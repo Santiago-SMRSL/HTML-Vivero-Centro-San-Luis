@@ -106,32 +106,36 @@
                 <p>
                     Diseño lógico y físico de la red corporativa del Vivero de Empresas simulado en <strong>Cisco Packet
                         Tracer</strong>, preparado para dar servicio a <strong>6 empresas independientes</strong> con
-                    aislamiento total mediante VLANs, servicios internos centralizados, perímetro seguro en DMZ e
-                    interconexión WAN con la red del Centro San Luis.
+                    aislamiento total de Capa 2 y Capa 3 mediante VLANs y ACLs, servicios internos centralizados,
+                    perímetro seguro en DMZ e interconexión WAN con la red del Centro San Luis.
                 </p>
 
                 <div class="grid-tarjetas-info">
                     <div class="card-info">
                         <h4>Acceso y Distribución LAN</h4>
-                        <p>3 switches Cisco 2960-24TT con 6 puntos de acceso inalámbricos que aíslan a cada empresa
+                        <p>3 switches Cisco 2960-24TT con 6 puntos de acceso inalámbricos que separan a cada empresa
                             (VLANs 10 a 60), concentrados en Switch3 junto al servidor DHCP (VLAN 70) y la impresora
                             compartida (VLAN 80).</p>
                     </div>
                     <div class="card-info">
-                        <h4>Núcleo Inter-VLAN</h4>
-                        <p>Switch multicapa Cisco 3560-24PS (SwitchL3) encargado del enrutamiento inter-VLAN mediante
-                            interfaces SVI (.254) y agente DHCP Relay hacia el servidor central (192.168.70.1).</p>
+                        <h4>Núcleo Inter-VLAN y ACLs</h4>
+                        <p>Switch multicapa Cisco 3560-24PS (SwitchL3) encargado del enrutamiento inter-VLAN (SVI
+                            <code>.254</code>), DHCP Relay hacia <code>192.168.70.1</code> y <strong>ACLs extendidas por
+                                VLAN</strong> que bloquean el tráfico entre empresas manteniendo acceso a DHCP,
+                            impresora, DMZ y Centro San Luis.
+                        </p>
                     </div>
                     <div class="card-info">
                         <h4>Firewall y Zona DMZ</h4>
-                        <p>Cisco ASA 5506-X con tres zonas de seguridad (Inside, DMZ y Outside), NAT/PAT dinámico, ACLs
-                            e inspección de protocolos para proteger los servidores públicos DNS, FTP y WEB.</p>
+                        <p>Cisco ASA 5506-X con zonas Inside, DMZ y Outside, NAT/PAT dinámico e inspección MPF
+                            permitiendo tráfico <strong>HTTP, HTTPS, DNS y FTP</strong> hacia los servidores públicos,
+                            con cuentas y permisos separados por empresa en el servidor FTP.</p>
                     </div>
                     <div class="card-info">
                         <h4>Interconexión Centro San Luis</h4>
-                        <p>Enlace WAN serial punto a punto (DCE/DTE) entre Router0 (Vivero) y Router2 (Centro) para
-                            conectar la red remota del Centro San Luis (192.168.100.0/24) con los servicios del vivero.
-                        </p>
+                        <p>Enlace WAN serial punto a punto (DCE/DTE, <code>clock rate 64000</code>) entre Router0
+                            (Vivero) y Router2 (Centro) para conectar la red remota del Centro San Luis
+                            (<code>192.168.100.0/24</code>) con los servicios de la DMZ.</p>
                     </div>
                 </div>
 
@@ -143,7 +147,7 @@
                                 <th>VLAN / Segmento</th>
                                 <th>Red / Máscara</th>
                                 <th>Puerta de enlace / Extremos</th>
-                                <th>Uso principal</th>
+                                <th>Uso principal y filtrado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,7 +155,7 @@
                                 <td>VLAN 10 – 60</td>
                                 <td>192.168.10.0/24 – 192.168.60.0/24</td>
                                 <td>192.168.X.254 (SwitchL3)</td>
-                                <td>Redes aisladas de Empresa 1 a Empresa 6 (cable y Wi-Fi)</td>
+                                <td>Redes de Empresa 1 a 6 aisladas entre sí mediante ACLs extendidas en SwitchL3</td>
                             </tr>
                             <tr>
                                 <td>VLAN 70 (DHCP)</td>
@@ -169,13 +173,13 @@
                                 <td>DMZ</td>
                                 <td>192.168.200.0/24</td>
                                 <td>192.168.200.254 (ASA0)</td>
-                                <td>Servidores DNS (.2), FTP (.3) y WEB (.4) de viverosanluis.com</td>
+                                <td>Servidores DNS (.2), FTP con usuarios por empresa (.3) y WEB (.4)</td>
                             </tr>
                             <tr>
                                 <td>Tránsito y WAN</td>
                                 <td>10.0.0.0/30 &middot; 172.16.0.0/30 &middot; 172.16.1.0/30</td>
                                 <td>SwitchL3 &harr; ASA0 &harr; Router0 &harr; Router2</td>
-                                <td>Tránsito interno L3 y enlace serial WAN (clock rate 64000)</td>
+                                <td>Tránsito interno L3 y enlace serial WAN punto a punto</td>
                             </tr>
                             <tr>
                                 <td>LAN Centro San Luis</td>
@@ -201,10 +205,10 @@
                 </figure>
 
                 <div class="acciones-descarga">
-                    <a href="docs/P2-Infraestructura-Red.pdf" class="btn-descarga" download>Descargar documentación P2
-                        (PDF)</a>
-                    <a href="docs/P2-Topologia-Vivero.pkt" class="btn-descarga btn-descarga-sec" download>Descargar
-                        simulación Packet Tracer (.pkt)</a>
+                    <a href="docs/P2-Infraestructura-Red.pdf" class="btn-descarga"
+                        download="P2-Infraestructura-Red.pdf">Descargar documentación P2 (PDF)</a>
+                    <a href="docs/P2-Topologia-Vivero.pkt" class="btn-descarga btn-descarga-sec"
+                        download="P2-Topologia-Vivero.pkt">Descargar simulación Packet Tracer (.pkt)</a>
                 </div>
             </article>
 
@@ -303,13 +307,17 @@
 
                 <div class="acciones-descarga">
                     <a href="docs/P3-Equipamiento-Informatico.pdf" class="btn-descarga"
-                        download="P3-Equipamiento-Informatico.pdf">Descargar P3 Completo (PDF)</a>
+                        download="P3-Equipamiento-Informatico.pdf">Descargar P3 - Pareja 1 (PDF)</a>
                     <a href="docs/P3-Cuaderno-Campo.pdf" class="btn-descarga btn-descarga-sec"
                         download="P3-Cuaderno-Campo.pdf">Cuaderno de Campo P3 (PDF)</a>
+                    <a href="docs/P3-Equipamiento-Informatico-p2.pdf" class="btn-descarga btn-descarga-sec"
+                        download="P3-Equipamiento-Informatico-p2.pdf">Descargar P3 - Pareja 2 (PDF)</a>
                     <a href="docs/P4-Almacenamiento-Vivero.pdf" class="btn-descarga"
-                        download="P4-Almacenamiento-Vivero.pdf">Descargar P4 Completo (PDF)</a>
+                        download="P4-Almacenamiento-Vivero.pdf">Descargar P4 - Pareja 1 (PDF)</a>
                     <a href="docs/P4-Cuaderno-Campo.pdf" class="btn-descarga btn-descarga-sec"
                         download="P4-Cuaderno-Campo.pdf">Cuaderno de Campo P4 (PDF)</a>
+                    <a href="docs/P4-Almacenamiento-Vivero-p2.pdf" class="btn-descarga btn-descarga-sec"
+                        download="P4-Almacenamiento-Vivero-p2.pdf">Descargar P4 - Pareja 2 (PDF)</a>
                 </div>
             </article>
 
@@ -318,7 +326,8 @@
                 <p>
                     Despliegue, securización y verificación de los servicios de red esenciales sobre el servidor
                     <strong>Ubuntu Server (<code>vivero-san-luis</code>)</strong> para automatizar el direccionamiento
-                    de las empresas, habilitar el intercambio de ficheros y permitir la administración remota segura.
+                    de las empresas, habilitar el intercambio de ficheros, publicar servicios web y permitir la
+                    administración remota segura.
                 </p>
 
                 <div class="grid-tarjetas-info">
@@ -358,11 +367,23 @@
                             XFCE4.
                         </p>
                     </div>
+
+                    <div class="card-info">
+                        <h4>Servidor Web (Apache2)</h4>
+                        <p>
+                            Publicación de sitios HTTP/HTTPS mediante Virtual Host en <code>000-default.conf</code>
+                            sobre <code>/var/www/html</code> (propietario <code>www-data</code> y permisos
+                            <code>755</code>), con listado de directorios desactivado (<code>-Indexes</code>) y
+                            verificación de sintaxis con <code>apache2ctl configtest</code>.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="acciones-descarga">
-                    <a href="docs/P5-Servicios-Red.pdf" class="btn-descarga" download>Descargar documentación P5
-                        (PDF)</a>
+                    <a href="docs/P5-Servicios-Red.pdf" class="btn-descarga" download="P5-Servicios-Red.pdf">Descargar
+                        documentación P5 - Pareja 1 (PDF)</a>
+                    <a href="docs/P5-Servicios-Red-p2.pdf" class="btn-descarga btn-descarga-sec"
+                        download="P5-Servicios-Red-p2.pdf">Descargar documentación P5 - Pareja 2 (PDF)</a>
                 </div>
             </article>
 
